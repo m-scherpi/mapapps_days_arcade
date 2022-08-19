@@ -4,7 +4,9 @@
     "version": "0.0.1",
     "license": "CC0-1.0",
     "scripts": {
-        "check-licenses": "node ./src/support/js/check-licenses.js"
+        "check-licenses": "node ./src/support/js/check-licenses.js",
+        "check-types": "tsc --noEmit",
+        "check-types:watch": "npm run check-types -- -w"
     },
     "devDependencies": {
         "@conterra/ct-mapapps-typings": "latest",

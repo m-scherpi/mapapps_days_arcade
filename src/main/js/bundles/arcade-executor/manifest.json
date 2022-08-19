@@ -1,0 +1,67 @@
+{
+    "name": "arcade-executor",
+    "version": "0.0.1",
+    "dependencies": {
+        "esri": "^4.6.0",
+        "apprt-vue": "^4.6.0",
+        "apprt-vuetify": "^4.6.0"
+    },
+    "main": "",
+    "i18n": [],
+    "layer": "module",
+    "layout-widgets": [
+        {
+            "widgetRole": "arcade",
+            "template": "seasons",
+            "window": {
+                "autofocus": false,
+                "dockTool": "arcadeTool",
+                "minimizeOnClose": true,
+                "marginBox": {
+                    "w": 355,
+                    "h": 455,
+                    "b": 100,
+                    "l": 300
+                },
+                "minSize": {
+                    "h": 330
+                }
+            }
+        }
+    ],
+    "components": [
+        {
+            "name": "Config",
+            "provides": ["dijit.Widget"],
+            "instanceFactory": true,
+            "properties": {
+                "widgetRole": "arcade"
+            },
+            "references": [
+                {
+                    "name": "_mapWidgetModel",
+                    "providing": "map-widget.MapWidgetModel"
+                }
+            ]
+        },
+        {
+            "name": "ArcadeTool",
+            "impl": "ct/tools/Tool",
+            "provides": [
+                "ct.tools.Tool"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "arcadeTool",
+                "title": "Arcade Executor",
+                "tooltip": "Arcade Executor",
+                "iconClass": "icon-camera",
+                "toolRole": "toolset",
+                "togglable": true,
+                "rules": {
+                    "noGroup": true
+                }
+            }
+        }
+    ]
+}

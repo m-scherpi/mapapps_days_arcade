@@ -12,34 +12,12 @@
             "theme-everlasting@^4.6.0",
             "toolset@^4.6.0",
             "map-init@^4.6.0",
-            "agssearch@^4.6.0",
-            "sample_camera@^0.0.1"
+            "toc@^4.6.0",
+            "popups-default@^4.6.0",
+            "arcade-executor@^0.0.1"
         ]
     },
     "bundles": {
-        "agssearch": {
-            "AGSStore": [
-                {
-                    "title": "St\u00F6rungen",
-                    "description": "Durchsucht die Beschreibung aller St\u00F6rungsmeldugen.",
-                    "omniSearchLabelAttr": "${details} (${melder})",
-                    "omniSearchSearchAttr": "details",
-                    "idProperty": "objectid",
-                    "url": "https://services.conterra.de/arcgis/rest/services/training/stoerungen/MapServer/0",
-                    "useIn": ["omnisearch", "selection"],
-                    "filterOptions": {
-                        "suggestContains": true
-                    },
-                    "omniSearchTypingDelay": 500,
-                    "omniSearchPageSize": 20,
-                    "omniSearchDefaultLabel": "Suchbegriff eingeben...",
-                    "fetchIdProperty": true,
-                    "id": "stoerungStore",
-                    "pid": "agssearch-AGSStore-0",
-                    "type": "Dynamisch"
-                }
-            ]
-        },
         "map-init": {
             "Config": {
                 "basemaps": [{
@@ -47,14 +25,6 @@
                     "basemap": "streets-vector",
                     "title": "Strassen",
                     "selected": true
-                },{
-                    "id": "satellite",
-                    "basemap": "satellite",
-                    "title": "Satellit"
-                },{
-                    "id": "hybrid",
-                    "basemap": "hybrid",
-                    "title": "Hybrid"
                 }],
                 "map": {
                     "layers": [
