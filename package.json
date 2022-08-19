@@ -19,6 +19,7 @@
         "mocha": "^9.0.0",
         "puppeteer": "^13.3.2",
         "stylelint-config-ct-prodeng": "1.0.3",
-        "vue-template-compiler": "2.7.8"
+        "vue-template-compiler": "2.7.8",
+        "vue": "2.7.8"
     }
 }

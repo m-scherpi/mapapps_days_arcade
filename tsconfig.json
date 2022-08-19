@@ -31,6 +31,7 @@
     "include": [
         "src/main/js/**/*.ts",
         "src/main/js/**/*.ts.vue",
+        "src/main/js/**/*.vue",
         "src/main/js/**/*.d.ts",
         "src/main/js/**/*.js",
         "node_modules/dojo-typings/index.d.ts",

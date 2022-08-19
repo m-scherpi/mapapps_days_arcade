@@ -2,9 +2,9 @@
     "name": "arcade-executor",
     "version": "0.0.1",
     "dependencies": {
-        "esri": "^4.6.0",
-        "apprt-vue": "^4.6.0",
-        "apprt-vuetify": "^4.6.0"
+        "esri": "^4.24.7",
+        "apprt-vue": "^4.13.2-SNAPSHOT",
+        "apprt-vuetify": "^4.13.2-SNAPSHOT"
     },
     "main": "",
     "i18n": [],
@@ -39,7 +39,7 @@
             },
             "references": [
                 {
-                    "name": "_mapWidgetModel",
+                    "name": "mapWidgetModel",
                     "providing": "map-widget.MapWidgetModel"
                 }
             ]
@@ -55,7 +55,7 @@
                 "id": "arcadeTool",
                 "title": "Arcade Executor",
                 "tooltip": "Arcade Executor",
-                "iconClass": "icon-camera",
+                "iconClass": "icon-star-o",
                 "toolRole": "toolset",
                 "togglable": true,
                 "rules": {

@@ -5,15 +5,15 @@
             "bundles"
         ],
         "allowedBundles": [
-            "system@^4.6.0",
-            "splashscreen@^4.6.0",
-            "templatelayout@^4.6.0",
-            "template-seasons@^4.6.0",
-            "theme-everlasting@^4.6.0",
-            "toolset@^4.6.0",
-            "map-init@^4.6.0",
-            "toc@^4.6.0",
-            "popups-default@^4.6.0",
+            "system",
+            "splashscreen",
+            "templatelayout",
+            "template-seasons",
+            "theme-everlasting",
+            "toolset",
+            "map-init",
+            "toc",
+            "popups-default",
             "arcade-executor@^0.0.1"
         ]
     },
