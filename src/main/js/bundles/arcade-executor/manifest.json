@@ -18,13 +18,10 @@
                 "dockTool": "arcadeTool",
                 "minimizeOnClose": true,
                 "marginBox": {
-                    "w": 355,
-                    "h": 455,
-                    "b": 100,
-                    "l": 300
-                },
-                "minSize": {
-                    "h": 330
+                    "r": 0,
+                    "t": 0,
+                    "b": 0,
+                    "w": 500
                 }
             }
         }
