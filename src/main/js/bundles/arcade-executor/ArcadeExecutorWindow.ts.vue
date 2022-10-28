@@ -1,5 +1,11 @@
 <template>
     <div>
+        <v-alert
+            :value="errorMessage.length > 0"
+            type="warning"
+        >
+            {{ errorMessage }}
+        </v-alert>
         <v-select
             v-model="selectedLayer"
             :items="layerNames"
@@ -92,6 +98,10 @@
             // eslint-disable-next-line vue/require-default-prop
             resultValue: {
                 type: String
+            },
+            errorMessage: {
+                type: String,
+                default: ""
             }
         },
         setup(props: any, { emit }: Record<any, any>): Record<any, any>{

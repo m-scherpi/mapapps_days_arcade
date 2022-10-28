@@ -21,7 +21,7 @@ export class ArcadeExecutorWindowFactory {
         const layerNames = map.layers.map((layer) => layer.type === "feature" ? layer.title : "")
             .filter(item => item !== "").toArray();
         const vm = new Vue<{ layerNames: Array<string>,
-            fieldNames: Array<string>, resultValue: string }>(ArcadeExecutorWindow);
+            fieldNames: Array<string>, resultValue: string, errorMessage: string }>(ArcadeExecutorWindow);
         const executor = new ArcadeExecutor();
         vm.layerNames = layerNames;
         vm.fieldNames = [];
@@ -37,7 +37,12 @@ export class ArcadeExecutorWindowFactory {
         });
 
         vm.$on("evaluate-arcade", async (arcadeExpression: string) => {
-            vm.resultValue = await executor.evaluateExpressionForLayer(arcadeExpression, this.#selectedLayer);
+            vm.errorMessage = "";
+            const resultValue = await executor.evaluateExpressionForLayer(arcadeExpression, this.#selectedLayer);
+            if(!resultValue){
+                vm.errorMessage = "No evaluation result.";
+            }
+            vm.resultValue = `${resultValue ?? ""}`;
         });
 
         vm.$on("apply-label", (arcadeExpression: string) => {
@@ -47,7 +52,13 @@ export class ArcadeExecutorWindowFactory {
                         expression: arcadeExpression
                     }
                 } as LabelClass;
-                this.#selectedLayer.labelingInfo = [ labelClass ];
+                try {
+                    vm.errorMessage = "";
+                    //GEOMETRY WKID
+                    this.#selectedLayer.labelingInfo = [ labelClass ];
+                } catch (e) {
+                    vm.errorMessage = e.message;
+                }
             }
         });
 

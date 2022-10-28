@@ -20,13 +20,12 @@ export class ArcadeExecutor {
 
     async evaluateExpressionForLayer(arcadeExpression: string, selectedLayer: FeatureLayer): Promise<string> {
 
-        const exec = await arcade.createArcadeExecutor(arcadeExpression, profile);
+        const executor = await arcade.createArcadeExecutor(arcadeExpression, profile);
 
-        selectedLayer.outFields = exec.fieldsUsed;
-
+        selectedLayer.outFields = executor.fieldsUsed;
         const { features } = await selectedLayer.queryFeatures();
 
-        return exec.execute({
+        return executor.execute({
             "$feature": features.at(0),
             "$layer": selectedLayer
         });
