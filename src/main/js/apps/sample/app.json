@@ -14,6 +14,7 @@
             "map-init",
             "toc",
             "popups-default",
+            "custominfo",
             "arcade-executor@^0.0.1"
         ]
     },
@@ -28,18 +29,18 @@
                 }],
                 "map": {
                     "layers": [
-
-                        {
-                            "title": "Kreise",
-                            "type": "AGS_FEATURE",
-                            "url": "https://services.conterra.de/arcgis/rest/services/common/grenzen/FeatureServer/1",
-                            "definitionExpression": "land_nr = 5"
-                        },
                         {
                             "title": "Bundesländer",
                             "type": "AGS_FEATURE",
-                            "url": "https://services2.arcgis.com/jUpNdisbWqRpMo35/ArcGIS/rest/services/LAN_ew_20/FeatureServer/0,",
+                            "url": "https://services2.arcgis.com/jUpNdisbWqRpMo35/ArcGIS/rest/services/LAN_ew_20/FeatureServer/0",
                             "outFields": ["*"]
+                        },
+                        {
+                            "title": "PegelOnline",
+                            "type": "AGS_FEATURE",
+                            "url": "https://services2.arcgis.com/jUpNdisbWqRpMo35/ArcGIS/rest/services/PegelOnline/FeatureServer/0",
+                            "outFields": ["*"],
+                            "visible": false
                         }
                     ]
                 },
@@ -53,6 +54,13 @@
                         "spatialReference": 3857
                     }
                 }
+            }
+        },
+        "popups": {
+            "Config": {
+                "dockEnabled": true,
+                "dockingForced": true,
+                "dockPosition": "bottom-left"
             }
         },
         "toolset": {
@@ -70,6 +78,30 @@
                     }
                 ]
             }
+        },
+        "custominfo": {
+            "CustomInfoToggleTool": [
+                {
+                    "id": "sampleDescriptionTool",
+                    "title": "Sample Description",
+                    "widgetSettings": {
+                        "content": "<p><b>Arcade Expressions:</b></p><p>$feature.bez + \" \" + $feature.gen</p><p>Round(Area($feature, 'square-kilometers'), 2)</p><p>Round( $feature.ewz / $feature.kfl, 2)</p><p>$feature.longname+ \": \" + Round($feature.currentMeasure_value, 0) + \" \" + $feature.parameter_unit</p>",
+                        "styleClass": "ctCopyrightContent",
+                        "window": {
+                            "marginBox": {
+                                "w": 350,
+                                "h": 300,
+                                "t": 200,
+                                "l": 150
+                            }
+                        }
+                    },
+                    "rules": {
+                        "groups": "custominfo",
+                        "activateOnStartup": true
+                    }
+                }
+            ]
         }
     }
 }
