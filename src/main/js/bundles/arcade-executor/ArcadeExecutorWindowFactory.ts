@@ -13,20 +13,25 @@ import {ArcadeExecutor} from "./ArcadeExecutor";
 
 export class ArcadeExecutorWindowFactory {
     mapWidgetModel: InjectedReference<MapWidgetModel>;
+    _i18n!: InjectedReference<any>;
     #selectedLayer: FeatureLayer;
+    #vm: any;
 
     createInstance(): any {
 
         const map = this.mapWidgetModel!.map;
         const layerNames = map.layers.map((layer) => layer.type === "feature" ? layer.title : "")
             .filter(item => item !== "").toArray();
-        const vm = new Vue<{ layerNames: Array<string>,
-            fieldNames: Array<string>, resultValue: string, errorMessage: string }>(ArcadeExecutorWindow);
+
+        const i18n: any = this._i18n.get();
+        const vm = this.#vm =  new Vue<{ layerNames: Array<string>,
+            fieldNames: Array<string>, resultValue: string, errorMessage: string,
+            i18n: Record<string, any> }>(ArcadeExecutorWindow);
         const executor = new ArcadeExecutor();
+        vm.i18n = i18n;
         vm.layerNames = layerNames;
         vm.fieldNames = [];
 
-        //TODO: Cleanup
         vm.$on("layer-change", (selectedLayer: string) => {
             const layer = map.layers.find((layer) => layer instanceof FeatureLayer &&
                 layer.title === selectedLayer);
@@ -40,7 +45,7 @@ export class ArcadeExecutorWindowFactory {
             vm.errorMessage = "";
             const resultValue = await executor.evaluateExpressionForLayer(arcadeExpression, this.#selectedLayer);
             if(!resultValue){
-                vm.errorMessage = "No evaluation result.";
+                vm.errorMessage = i18n.error.noresult;
             }
             vm.resultValue = `${resultValue ?? ""}`;
         });
@@ -54,14 +59,18 @@ export class ArcadeExecutorWindowFactory {
                 } as LabelClass;
                 try {
                     vm.errorMessage = "";
-                    //GEOMETRY WKID
                     this.#selectedLayer.labelingInfo = [ labelClass ];
                 } catch (e) {
+                    // internal errors won't be catched here...
                     vm.errorMessage = e.message;
                 }
             }
         });
 
         return VueDijit(vm);
+    }
+
+    destroyInstance(): any{
+        this.#vm.$off();
     }
 }

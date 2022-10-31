@@ -7,7 +7,7 @@
         "apprt-vuetify": "^4.13.2-SNAPSHOT"
     },
     "main": "",
-    "i18n": [],
+    "i18n": ["bundle"],
     "layer": "module",
     "layout-widgets": [
         {
@@ -50,8 +50,8 @@
             "propertiesConstructor": true,
             "properties": {
                 "id": "arcadeTool",
-                "title": "Arcade Executor",
-                "tooltip": "Arcade Executor",
+                "title": "${window.title}",
+                "tooltip": "${window.tooltip}",
                 "iconClass": "icon-star-o",
                 "toolRole": "toolset",
                 "togglable": true,

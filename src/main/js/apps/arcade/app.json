@@ -83,9 +83,9 @@
             "CustomInfoToggleTool": [
                 {
                     "id": "sampleDescriptionTool",
-                    "title": "Sample Description",
+                    "title": "Arcade",
                     "widgetSettings": {
-                        "content": "<p><b>Arcade Expressions:</b></p><p>$feature.bez + \" \" + $feature.gen</p><p>Round(Area($feature, 'square-kilometers'), 2)</p><p>Round( $feature.ewz / $feature.kfl, 2)</p><p>$feature.longname+ \": \" + Round($feature.currentMeasure_value, 0) + \" \" + $feature.parameter_unit</p>",
+                        "content": "<p>$feature.bez + \" \" + $feature.gen</p><p>Round(Area($feature, 'square-kilometers'), 2)</p><p>Round( $feature.ewz / $feature.kfl, 2)</p><p>$feature.longname+ \": \" + Round($feature.currentMeasure_value, 0) + \" \" + $feature.parameter_unit</p>",
                         "styleClass": "ctCopyrightContent",
                         "window": {
                             "marginBox": {
@@ -98,7 +98,7 @@
                     },
                     "rules": {
                         "groups": "custominfo",
-                        "activateOnStartup": true
+                        "activateOnStartup": false
                     }
                 }
             ]

@@ -9,16 +9,16 @@
         <v-select
             v-model="selectedLayer"
             :items="layerNames"
-            label="Layers"
+            :label="i18n.arcade.layer"
             @change="layerChanged"
         />
-
         <v-expansion-panel
             v-if="selectedLayer !== '' && fieldNames.length > 0"
+            class="mt-6"
         >
             <v-expansion-panel-content>
                 <template #header>
-                    <div>Possible Fields</div>
+                    <div>{{ i18n.arcade.usableFields }}</div>
                 </template>
                 <div
                     style="height: 250px; overflow: auto"
@@ -27,7 +27,7 @@
                         v-for="(field,i) in fieldNames"
                         :key="i"
                     >
-                        <li>{{ field }}</li>
+                        <li>$feature.{{ field }}</li>
                     </ul>
                 </div>
             </v-expansion-panel-content>
@@ -35,13 +35,14 @@
         <v-textarea
             v-if="selectedLayer"
             v-model="arcadeExpr"
-            label="Arcade Expression"
-            placeholder="e.g. $feature.name"
+            class="mt-4"
+            :label="i18n.arcade.expressionLabel"
+            :placeholder="i18n.arcade.placeholder"
             outline
         />
         <v-btn
             v-if="selectedLayer"
-            class="primary"
+            class="primary mt-1"
             round
             block
             @click.stop="evaluateArcade"
@@ -52,18 +53,19 @@
             <span
                 class="ml-1"
             >
-                Evaluate
+                {{ i18n.arcade.evaluate }}
             </span>
         </v-btn>
         <v-textarea
             v-if="resultValue && resultValue.length > 0"
             v-model="resultValue"
+            class="mt-4"
             outline
             disabled
         />
         <v-btn
             v-if="resultValue && resultValue.length > 0"
-            class="primary"
+            class="primary mt-1"
             round
             block
             @click.stop="applyLabel"
@@ -74,7 +76,7 @@
             <span
                 class="ml-1"
             >
-                Apply to layer
+                {{ i18n.arcade.apply }}
             </span>
         </v-btn>
     </div>
@@ -98,6 +100,10 @@
             // eslint-disable-next-line vue/require-default-prop
             resultValue: {
                 type: String
+            },
+            // eslint-disable-next-line vue/require-default-prop
+            i18n: {
+                type: Object
             },
             errorMessage: {
                 type: String,
