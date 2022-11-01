@@ -9,6 +9,7 @@ export default {
         arcade: {
             usableFields: "Usable Fields",
             expressionLabel: "Arcade Expression",
+            resultLabel: "Result",
             placeholder: "e.g. $feature.name",
             layer: "Layers",
             evaluate: "Evaluate",

@@ -8,6 +8,7 @@ export default {
     arcade: {
         usableFields: "Nutzbare Felder",
         expressionLabel: "Arcade-Ausdruck",
+        resultLabel: "Ergebnis",
         placeholder: "z.B. $feature.name",
         layer: "Ebenen",
         evaluate: "Auswerten",

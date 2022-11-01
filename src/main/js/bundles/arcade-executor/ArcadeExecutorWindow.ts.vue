@@ -14,7 +14,7 @@
         />
         <v-expansion-panel
             v-if="selectedLayer !== '' && fieldNames.length > 0"
-            class="mt-6"
+            class="mb-4"
         >
             <v-expansion-panel-content>
                 <template #header>
@@ -35,14 +35,13 @@
         <v-textarea
             v-if="selectedLayer"
             v-model="arcadeExpr"
-            class="mt-4"
             :label="i18n.arcade.expressionLabel"
             :placeholder="i18n.arcade.placeholder"
             outline
         />
         <v-btn
             v-if="selectedLayer"
-            class="primary mt-1"
+            class="primary"
             round
             block
             @click.stop="evaluateArcade"
@@ -59,7 +58,8 @@
         <v-textarea
             v-if="resultValue && resultValue.length > 0"
             v-model="resultValue"
-            class="mt-4"
+            :label="i18n.arcade.resultLabel"
+            class="mt-5"
             outline
             disabled
         />
