@@ -12,6 +12,8 @@
         "@conterra/ct-mapapps-typings": "latest",
         "@conterra/mapapps-mocha-runner": "^1.0.0",
         "@types/arcgis-js-api": "4.24.0",
+        "@types/chai": "4.3.1",
+        "@types/mocha": "9.1.1",
         "chai": "^4.3.6",
         "ct-mapapps-gulp-js": "^0.7.3",
         "eslint-config-ct-prodeng": "^1.2.5",
