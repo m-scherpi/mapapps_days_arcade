@@ -1,4 +1,4 @@
-# arcade-executor
+# dn_arcade-executor
 
 This bundle offers a user interface to execute Arcade expressions based on FeatureLayers added to the map.
 Also it is possible to add an executed Arcade expression as label to the FeatureLayer in the map.

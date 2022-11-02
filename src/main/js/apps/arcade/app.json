@@ -19,7 +19,7 @@
             "popups-default",
             "custominfo",
             "banner",
-            "arcade-executor@^0.0.1"
+            "dn_arcade-executor@^0.0.1"
         ]
     },
     "bundles": {

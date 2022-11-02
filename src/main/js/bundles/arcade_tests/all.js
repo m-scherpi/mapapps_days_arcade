@@ -1,1 +1,1 @@
-import "arcade-executor/tests/all";
+import "dn_arcade-executor/tests/all";

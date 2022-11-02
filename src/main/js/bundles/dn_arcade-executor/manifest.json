@@ -1,5 +1,5 @@
 {
-    "name": "arcade-executor",
+    "name": "dn_arcade-executor",
     "version": "0.0.1",
     "dependencies": {
         "esri": "^4.24.7",
